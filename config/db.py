@@ -4,9 +4,9 @@ from sqlalchemy import create_engine, MetaData
 
 load_dotenv()
 
-print(env["DB_DATA"])
+print(env["DB_LOCAL"])
 
-engine = create_engine(env["DB_DATA"])
+engine = create_engine(env["DB_LOCAL"])
 
 meta = MetaData()
 
