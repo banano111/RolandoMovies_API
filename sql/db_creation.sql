@@ -27,3 +27,14 @@ CREATE TABLE userSeries(
     imagen VARCHAR(1000),
     UNIQUE KEY (id_serie,id_usuario)
 );
+
+CREATE TABLE watchingSeries(
+    id_watchingSerie SMALLINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nombre_serie VARCHAR(50),
+    temporada SMALLINT,
+    capitulo SMALLINT,
+    imagen VARCHAR(1000),
+    id_usuario SMALLINT NOT NULL,
+    id_serie SMALLINT NOT NULL,
+    UNIQUE KEY (id_serie,id_usuario)
+)

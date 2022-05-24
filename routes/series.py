@@ -4,8 +4,8 @@ from sqlalchemy.sql.expression import true
 from sqlalchemy.sql.functions import user
 from config.db import conn
 from models.series import series
-from models.userSeries import userSeries
-from schemas.series import UserSerie
+from models.userSeries import userSeries, watchingSeries
+from schemas.series import UserSerie, UserWatching
 
 
 series_route = APIRouter(
@@ -27,6 +27,21 @@ def create_sale(userSerie: UserSerie):
     print(userSerie)
     new_userSerie = userSerie.dict()
     result = conn.execute(userSeries.insert().values(new_userSerie))
+    print(result)
+
+    return {"userSeries_added": True}
+
+@series_route.get("/watching/{user_id}")
+def getWatchingSeries(user_id):
+    print(user_id)
+    watching_series = conn.execute(watchingSeries.select().where(watchingSeries.c.id_usuario == user_id)).all()
+    return watching_series
+
+@series_route.post("/watching")
+def create_sale(userWatching: UserWatching):
+    print(userWatching)
+    new_userUserWatching = userWatching.dict()
+    result = conn.execute(watchingSeries.insert().values(new_userUserWatching))
     print(result)
 
     return {"userSeries_added": True}

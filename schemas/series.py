@@ -8,3 +8,14 @@ class UserSerie(BaseModel):
     imagen: str
     class Config:
         orm_mode=True
+
+class UserWatching(BaseModel):
+    id_watchingSerie: Optional[int]
+    nombre_serie: str
+    temporada: str
+    capitulo: str
+    imagen: str
+    id_usuario: int
+    id_serie: int
+    class Config:
+        orm_mode=True

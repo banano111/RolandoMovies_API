@@ -7,7 +7,7 @@ from routes.series import series_route
 app = FastAPI()
 
 origins = [
-    "*"
+    "*",
 ]
 
 app.add_middleware(
