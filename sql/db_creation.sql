@@ -16,5 +16,14 @@ CREATE TABLE series (
     genero VARCHAR(20),
     descripcion VARCHAR(500),
     imagen VARCHAR(1000),
-    calificacion SMALLINT
+    calificacion SMALLINT,
+    is_popular SMALLINT
+);
+
+CREATE TABLE userSeries(
+    id_userSeries SMALLINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id_serie SMALLINT NOT NULL,
+    id_usuario SMALLINT NOT NULL,
+    imagen VARCHAR(1000),
+    UNIQUE KEY (id_serie,id_usuario)
 );

@@ -9,4 +9,5 @@ series = Table("series", meta,
     Column("descripcion", VARCHAR(500)),
     Column("imagen", VARCHAR(1000)),
     Column("calificacion", SmallInteger),
+    Column("is_popular", SmallInteger),
     )
